@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Toy Robot</title>
+</head>
+<body>
+    
+    <div class="container text-center" id="canvasArea">
+        <h1> Toy Robot</h1>
+    </div>
+
+    <div class="container text-center">
+        <label for="inputType">Choose input type: </label>
+        <select name="inputType" id="inputType">
+            <option value="command-input" selected="selected">Commands</option>
+            <option value="file-input">File</option>
+            <option value="button-input">Buttons</option>
+        </select>
+    </div>
+
+    <div class="container text-center" id="commandInput">
+            <input type="text" id="command"/> 
+            <input type="button" value="Send Command" onclick="checkCommand()"/>
+    </div>
+
+
+    <div class="container text-center" id="fileInput">
+        <form name="testingForm" enctype="multipart/form-data">
+            <label for"testFile">Enter a test txt file:</label>
+            <input type="file" id="testFile" accept=".txt"/>
+            <input type="button" value="Submit File" onclick="checkFile()"/>
+        </form>
+    </div>
+
+    <div class="container text-center" id="buttonInput">
+        <div class="row">
+            <div class="col-2">
+                <label for="buttonX"> x:</label>
+                <input type="number" id="buttonX" name="buttonX" min="0" max="4" style="width: 60px;">
+            </div>
+            <div class="col-2">
+                <label for="buttonY"> y:</label>
+                <input type="number" id="buttonY" name="buttonY" min="0" max="4" style="width: 60px;">
+            </div>
+            <div class="col-6">
+                <label for="buttonFace">Select facing direction:</label>
+                <select name="buttonFace" id="buttonFace">
+                    <option value="north" selected="selected">North</option>
+                    <option value="east">East</option>
+                    <option value="south">South</option>
+                    <option value="west">West</option>
+                </select>
+            </div>
+            <div class="col-2">
+                <input type="button" value="Place" onclick="checkButton('place')"/>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 offset-md-2">
+                <input type="button" value="Move" onclick="checkButton('move')"/>
+            </div>
+            <div class="col-2">
+                <input type="button" value="Left" onclick="checkButton('left')"/>
+            </div>
+            <div class="col-2">
+                <input type="button" value="Right" onclick="checkButton('right')"/>
+            </div>
+            <div class="col-2">
+                <input type="button" value="Report" id="report-button" onclick="checkButton('report')"/>
+            </div>
+        </div>
+    </div>
+
+    <p class="container text-center" id="report"></p>
+
+    <div class="container text-center">
+        <table class="table" id="fileTrace" style="margin: auto;">
+            <thead>
+                <tr>
+                    <th>Command</th>
+                    <th>X</th>
+                    <th>Y</th>
+                    <th>F</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</body>
+
+<script type="text/javascript" src="toyrobot.js"></script>
