@@ -16,4 +16,4 @@ Enter in command to box. Acceptable commands are:
  Enter coordinates and click place. Navigate the board using the buttons.
  
  ### File
- Upload a text file with line by line instructions for the program to parse. An output of the moves performed will be output. 
+ Upload a text file with line by line instructions for the program to parse. An output of the moves performed will be displayed. 
